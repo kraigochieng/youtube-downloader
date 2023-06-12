@@ -1,1 +1,38 @@
+# Frontend Stuff
 client/node_modules/
+
+# Flask specific
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+.venv/
+ENV/
+
+# IDE files
+.vscode/
+.idea/
+
+# Dependency directories
+lib/
+lib64/
+parts/
+sdist/
+build/
+develop-eggs/
+dist/
+eggs/
+*.egg-info/
+
+# Compiled Python files
+*.pyc
+*.pyo
+
+# Miscellaneous
+*.swp
+*~
+.DS_Store
