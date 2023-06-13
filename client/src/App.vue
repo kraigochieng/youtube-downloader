@@ -1,13 +1,27 @@
 <template>
   <div>
-    <URLComponent/>
+    <URLComponent />
+    <template v-if="mediaStore.isUrlValid">
+      <PreviewComponent />
+      <VideoTable />
+    </template>
+    <template v-else>
+      <p>Enter Valid URL</p>
+    </template>
+    
   </div>
 </template>
 
 <script setup>
 
+import VideoTable from './components/VideoTable.vue';
+import PreviewComponent from './components/PreviewComponent.vue';
 import URLComponent from './components/URLComponent.vue';
 
+
+
+import { useMediaStore } from '@/stores/mediaStore.js'
+const mediaStore = useMediaStore()
 </script>
 
 <style>

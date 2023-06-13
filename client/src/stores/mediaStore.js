@@ -1,8 +1,12 @@
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 
 export const useMediaStore = defineStore('media', () => {
+    const isUrlValid = ref(false)
     const url = ref('')
-    const full_length = ref('')
-    return { url, full_length }
+    const title = ref('')
+    const length = ref('')
+    const thumbnail_url = ref('')
+    const resolution = reactive([])
+    return { isUrlValid, url, title, length, thumbnail_url, resolution }
 })

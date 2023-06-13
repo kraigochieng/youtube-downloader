@@ -10,12 +10,19 @@
     const mediaStore = useMediaStore()
 
     onUpdated(() => {
-        axios.post('/api/video/', { 'url': mediaStore.url }, { cors: true })
+        axios.post('/api/media/', { 'url': mediaStore.url }, { cors: true })
         .then(response => {
-            let media = response.data
-
-            mediaStore.full_length = media.full_length
-
+            // Check if URL is valid
+            if(Object.keys(response.data).length !== 0) {
+                mediaStore.isUrlValid = true
+                mediaStore.title = response.data.title
+                mediaStore.resolution = response.data.resolution
+                mediaStore.length = response.data.length
+                mediaStore.thumbnail_url = response.data.thumbnail_url
+            } else {
+                mediaStore.isUrlValid = false
+            }
+            
             console.log(mediaStore)
         })
         .catch(error => console.error(error))
